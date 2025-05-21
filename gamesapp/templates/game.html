@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ game.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body class="bg-light">
+
+<!-- Навігація -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">GameHub</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Головна</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Картка гри -->
+<div class="container">
+    <div class="card shadow-lg mb-5" style="max-width: 800px; margin: auto;">
+        <img src="{{ game.img.url }}" class="card-img-top" alt="{{ game.title }}">
+        <div class="card-body">
+            <h2 class="card-title text-center">{{ game.title }}</h2>
+            <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item"><strong>Дата випуску:</strong> {{ game.date }}</li>
+                <li class="list-group-item"><strong>Жанр:</strong> {{ game.genre }}</li>
+                <li class="list-group-item"><strong>Вікове обмеження:</strong> {{ game.age }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (необов'язково, для інтерактивних компонентів) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
